@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-#include "debug.h"
+#include "../sys/debug.h"
 
 #define FIFO "/tmp/my_fifo"
 

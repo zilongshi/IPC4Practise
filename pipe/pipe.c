@@ -1,7 +1,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "debug.h"
+#include "../sys/debug.h"
 
 #define MAXLINE 256
 #define FROM 0
