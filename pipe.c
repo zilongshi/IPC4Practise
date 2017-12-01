@@ -1,44 +1,40 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <memory.h>
-#include <errno.h>
+#include "debug.h"
 
-#define BUFFER_SIZE 10
+#define MAXLINE 256
+#define FROM 0
+#define TO 1
 
 int main(int argc, char const *argv[])
 {
     int n;
     int fd[2];
     pid_t pid;
+    char line[MAXLINE];
 
-    char send_buffer[BUFFER_SIZE] = "welcome!";
-    char receive_buffer[BUFFER_SIZE];
-
-    memset(receive_buffer, 0, sizeof(receive_buffer));
-
-    if (pipe(fd) == -1)
+    if (pipe(fd) < 0)
     {
-        fprintf(stderr, "pipe: %s\n", strerror(errno));
-        exit(1);
+        debug_error("Pipe error");
+        exit(-1);
     }
 
-    if ((pid == fork()) < 0)
+    if ((pid = fork()) < 0)
     {
-        fprintf(stderr, "fork: %s\n", strerror(errno));
-        exit(1);
+        debug_error("fork error");
+        exit(-1);
     }
     else if (pid > 0)
     {
-        close(fd[0]);
-        write(fd[1], send_buffer, BUFFER_SIZE);
-        printf("parent process %d send: %s\n", getpid(), send_buffer);
+        close(fd[FROM]);
+        write(fd[TO], "Hello PIPE\n", 12);
     }
     else
     {
-        close(fd[1]);
-        read(fd[0], receive_buffer, BUFFER_SIZE);
-        printf("child process %d receive: %s\n", getpid(), receive_buffer);
+        close(fd[TO]);
+        n = read(fd[0], line, MAXLINE);
+        write(STDOUT_FILENO, line, n);
     }
 
     return 0;
