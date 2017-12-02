@@ -393,7 +393,7 @@ on `(hostname || uname -n) 2>/dev/null | sed 1q`
 "
 
 # Files that config.status was made for.
-config_files=" Makefile pipe/Makefile named_pipe/Makefile xsi_messages/Makefile xsi_shared_memory/Makefile"
+config_files=" Makefile pipe/Makefile named_pipe/Makefile xsi_messages/Makefile xsi_shared_memory/Makefile posix_semaphores/Makefile"
 config_headers=" config.h"
 config_commands=" depfiles"
 
@@ -553,6 +553,7 @@ do
     "named_pipe/Makefile") CONFIG_FILES="$CONFIG_FILES named_pipe/Makefile" ;;
     "xsi_messages/Makefile") CONFIG_FILES="$CONFIG_FILES xsi_messages/Makefile" ;;
     "xsi_shared_memory/Makefile") CONFIG_FILES="$CONFIG_FILES xsi_shared_memory/Makefile" ;;
+    "posix_semaphores/Makefile") CONFIG_FILES="$CONFIG_FILES posix_semaphores/Makefile" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac

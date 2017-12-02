@@ -1,0 +1,4 @@
+execthreadsemaphores-thread_semaphores.o: thread_semaphores.c \
+ /usr/include/stdc-predef.h
+
+/usr/include/stdc-predef.h:

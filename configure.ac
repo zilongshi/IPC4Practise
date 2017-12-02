@@ -24,4 +24,4 @@ AC_FUNC_FORK
 AC_CHECK_FUNCS([mkfifo])
 
 AM_INIT_AUTOMAKE([1.15 subdir-objects -Wall -Werror])
-AC_OUTPUT([Makefile pipe/Makefile named_pipe/Makefile xsi_messages/Makefile xsi_shared_memory/Makefile])
+AC_OUTPUT([Makefile pipe/Makefile named_pipe/Makefile xsi_messages/Makefile xsi_shared_memory/Makefile posix_semaphores/Makefile])
