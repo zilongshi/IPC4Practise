@@ -86,7 +86,7 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-bin_PROGRAMS = pipe$(EXEEXT)
+bin_PROGRAMS = execpipe$(EXEEXT)
 subdir = pipe
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -100,9 +100,10 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
-am_pipe_OBJECTS = pipe-pipe.$(OBJEXT) ../sys/pipe-debug.$(OBJEXT)
-pipe_OBJECTS = $(am_pipe_OBJECTS)
-pipe_LDADD = $(LDADD)
+am_execpipe_OBJECTS = execpipe-pipe.$(OBJEXT) \
+	../sys/execpipe-debug.$(OBJEXT)
+execpipe_OBJECTS = $(am_execpipe_OBJECTS)
+execpipe_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -135,8 +136,8 @@ AM_V_CCLD = $(am__v_CCLD_$(V))
 am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(pipe_SOURCES)
-DIST_SOURCES = $(pipe_SOURCES)
+SOURCES = $(execpipe_SOURCES)
+DIST_SOURCES = $(execpipe_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -252,8 +253,8 @@ top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
 AUTOMAKE_OPTIONS = foreign
-pipe_SOURCES = pipe.c ../sys/debug.c ../sys/debug.h
-pipe_CPPFLAGS = -DDEBUG
+execpipe_SOURCES = pipe.c ../sys/debug.c ../sys/debug.h
+execpipe_CPPFLAGS = -DDEBUG
 all: all-am
 
 .SUFFIXES:
@@ -335,12 +336,12 @@ clean-binPROGRAMS:
 ../sys/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ../sys/$(DEPDIR)
 	@: > ../sys/$(DEPDIR)/$(am__dirstamp)
-../sys/pipe-debug.$(OBJEXT): ../sys/$(am__dirstamp) \
+../sys/execpipe-debug.$(OBJEXT): ../sys/$(am__dirstamp) \
 	../sys/$(DEPDIR)/$(am__dirstamp)
 
-pipe$(EXEEXT): $(pipe_OBJECTS) $(pipe_DEPENDENCIES) $(EXTRA_pipe_DEPENDENCIES) 
-	@rm -f pipe$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(pipe_OBJECTS) $(pipe_LDADD) $(LIBS)
+execpipe$(EXEEXT): $(execpipe_OBJECTS) $(execpipe_DEPENDENCIES) $(EXTRA_execpipe_DEPENDENCIES) 
+	@rm -f execpipe$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(execpipe_OBJECTS) $(execpipe_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -349,8 +350,8 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ../sys/$(DEPDIR)/pipe-debug.Po
-include ./$(DEPDIR)/pipe-pipe.Po
+include ../sys/$(DEPDIR)/execpipe-debug.Po
+include ./$(DEPDIR)/execpipe-pipe.Po
 
 .c.o:
 	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
@@ -368,33 +369,33 @@ include ./$(DEPDIR)/pipe-pipe.Po
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
-pipe-pipe.o: pipe.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(pipe_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT pipe-pipe.o -MD -MP -MF $(DEPDIR)/pipe-pipe.Tpo -c -o pipe-pipe.o `test -f 'pipe.c' || echo '$(srcdir)/'`pipe.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/pipe-pipe.Tpo $(DEPDIR)/pipe-pipe.Po
-#	$(AM_V_CC)source='pipe.c' object='pipe-pipe.o' libtool=no \
+execpipe-pipe.o: pipe.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(execpipe_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT execpipe-pipe.o -MD -MP -MF $(DEPDIR)/execpipe-pipe.Tpo -c -o execpipe-pipe.o `test -f 'pipe.c' || echo '$(srcdir)/'`pipe.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/execpipe-pipe.Tpo $(DEPDIR)/execpipe-pipe.Po
+#	$(AM_V_CC)source='pipe.c' object='execpipe-pipe.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(pipe_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o pipe-pipe.o `test -f 'pipe.c' || echo '$(srcdir)/'`pipe.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(execpipe_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o execpipe-pipe.o `test -f 'pipe.c' || echo '$(srcdir)/'`pipe.c
 
-pipe-pipe.obj: pipe.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(pipe_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT pipe-pipe.obj -MD -MP -MF $(DEPDIR)/pipe-pipe.Tpo -c -o pipe-pipe.obj `if test -f 'pipe.c'; then $(CYGPATH_W) 'pipe.c'; else $(CYGPATH_W) '$(srcdir)/pipe.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/pipe-pipe.Tpo $(DEPDIR)/pipe-pipe.Po
-#	$(AM_V_CC)source='pipe.c' object='pipe-pipe.obj' libtool=no \
+execpipe-pipe.obj: pipe.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(execpipe_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT execpipe-pipe.obj -MD -MP -MF $(DEPDIR)/execpipe-pipe.Tpo -c -o execpipe-pipe.obj `if test -f 'pipe.c'; then $(CYGPATH_W) 'pipe.c'; else $(CYGPATH_W) '$(srcdir)/pipe.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/execpipe-pipe.Tpo $(DEPDIR)/execpipe-pipe.Po
+#	$(AM_V_CC)source='pipe.c' object='execpipe-pipe.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(pipe_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o pipe-pipe.obj `if test -f 'pipe.c'; then $(CYGPATH_W) 'pipe.c'; else $(CYGPATH_W) '$(srcdir)/pipe.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(execpipe_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o execpipe-pipe.obj `if test -f 'pipe.c'; then $(CYGPATH_W) 'pipe.c'; else $(CYGPATH_W) '$(srcdir)/pipe.c'; fi`
 
-../sys/pipe-debug.o: ../sys/debug.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(pipe_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ../sys/pipe-debug.o -MD -MP -MF ../sys/$(DEPDIR)/pipe-debug.Tpo -c -o ../sys/pipe-debug.o `test -f '../sys/debug.c' || echo '$(srcdir)/'`../sys/debug.c
-	$(AM_V_at)$(am__mv) ../sys/$(DEPDIR)/pipe-debug.Tpo ../sys/$(DEPDIR)/pipe-debug.Po
-#	$(AM_V_CC)source='../sys/debug.c' object='../sys/pipe-debug.o' libtool=no \
+../sys/execpipe-debug.o: ../sys/debug.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(execpipe_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ../sys/execpipe-debug.o -MD -MP -MF ../sys/$(DEPDIR)/execpipe-debug.Tpo -c -o ../sys/execpipe-debug.o `test -f '../sys/debug.c' || echo '$(srcdir)/'`../sys/debug.c
+	$(AM_V_at)$(am__mv) ../sys/$(DEPDIR)/execpipe-debug.Tpo ../sys/$(DEPDIR)/execpipe-debug.Po
+#	$(AM_V_CC)source='../sys/debug.c' object='../sys/execpipe-debug.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(pipe_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ../sys/pipe-debug.o `test -f '../sys/debug.c' || echo '$(srcdir)/'`../sys/debug.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(execpipe_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ../sys/execpipe-debug.o `test -f '../sys/debug.c' || echo '$(srcdir)/'`../sys/debug.c
 
-../sys/pipe-debug.obj: ../sys/debug.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(pipe_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ../sys/pipe-debug.obj -MD -MP -MF ../sys/$(DEPDIR)/pipe-debug.Tpo -c -o ../sys/pipe-debug.obj `if test -f '../sys/debug.c'; then $(CYGPATH_W) '../sys/debug.c'; else $(CYGPATH_W) '$(srcdir)/../sys/debug.c'; fi`
-	$(AM_V_at)$(am__mv) ../sys/$(DEPDIR)/pipe-debug.Tpo ../sys/$(DEPDIR)/pipe-debug.Po
-#	$(AM_V_CC)source='../sys/debug.c' object='../sys/pipe-debug.obj' libtool=no \
+../sys/execpipe-debug.obj: ../sys/debug.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(execpipe_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ../sys/execpipe-debug.obj -MD -MP -MF ../sys/$(DEPDIR)/execpipe-debug.Tpo -c -o ../sys/execpipe-debug.obj `if test -f '../sys/debug.c'; then $(CYGPATH_W) '../sys/debug.c'; else $(CYGPATH_W) '$(srcdir)/../sys/debug.c'; fi`
+	$(AM_V_at)$(am__mv) ../sys/$(DEPDIR)/execpipe-debug.Tpo ../sys/$(DEPDIR)/execpipe-debug.Po
+#	$(AM_V_CC)source='../sys/debug.c' object='../sys/execpipe-debug.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(pipe_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ../sys/pipe-debug.obj `if test -f '../sys/debug.c'; then $(CYGPATH_W) '../sys/debug.c'; else $(CYGPATH_W) '$(srcdir)/../sys/debug.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(execpipe_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ../sys/execpipe-debug.obj `if test -f '../sys/debug.c'; then $(CYGPATH_W) '../sys/debug.c'; else $(CYGPATH_W) '$(srcdir)/../sys/debug.c'; fi`
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique

@@ -86,7 +86,7 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-bin_PROGRAMS = xsi_messages$(EXEEXT)
+bin_PROGRAMS = execxsimessages$(EXEEXT)
 subdir = xsi_messages
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -100,10 +100,10 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
-am_xsi_messages_OBJECTS = xsi_messages-xsi_messages.$(OBJEXT) \
-	../sys/xsi_messages-debug.$(OBJEXT)
-xsi_messages_OBJECTS = $(am_xsi_messages_OBJECTS)
-xsi_messages_LDADD = $(LDADD)
+am_execxsimessages_OBJECTS = execxsimessages-xsi_messages.$(OBJEXT) \
+	../sys/execxsimessages-debug.$(OBJEXT)
+execxsimessages_OBJECTS = $(am_execxsimessages_OBJECTS)
+execxsimessages_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -136,8 +136,8 @@ AM_V_CCLD = $(am__v_CCLD_$(V))
 am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(xsi_messages_SOURCES)
-DIST_SOURCES = $(xsi_messages_SOURCES)
+SOURCES = $(execxsimessages_SOURCES)
+DIST_SOURCES = $(execxsimessages_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -253,8 +253,8 @@ top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
 AUTOMAKE_OPTIONS = foreign
-xsi_messages_SOURCES = xsi_messages.c ../sys/debug.c ../sys/debug.h
-xsi_messages_CPPFLAGS = -DDEBUG
+execxsimessages_SOURCES = xsi_messages.c ../sys/debug.c ../sys/debug.h
+execxsimessages_CPPFLAGS = -DDEBUG
 all: all-am
 
 .SUFFIXES:
@@ -336,12 +336,12 @@ clean-binPROGRAMS:
 ../sys/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ../sys/$(DEPDIR)
 	@: > ../sys/$(DEPDIR)/$(am__dirstamp)
-../sys/xsi_messages-debug.$(OBJEXT): ../sys/$(am__dirstamp) \
+../sys/execxsimessages-debug.$(OBJEXT): ../sys/$(am__dirstamp) \
 	../sys/$(DEPDIR)/$(am__dirstamp)
 
-xsi_messages$(EXEEXT): $(xsi_messages_OBJECTS) $(xsi_messages_DEPENDENCIES) $(EXTRA_xsi_messages_DEPENDENCIES) 
-	@rm -f xsi_messages$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(xsi_messages_OBJECTS) $(xsi_messages_LDADD) $(LIBS)
+execxsimessages$(EXEEXT): $(execxsimessages_OBJECTS) $(execxsimessages_DEPENDENCIES) $(EXTRA_execxsimessages_DEPENDENCIES) 
+	@rm -f execxsimessages$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(execxsimessages_OBJECTS) $(execxsimessages_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -350,8 +350,8 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ../sys/$(DEPDIR)/xsi_messages-debug.Po
-include ./$(DEPDIR)/xsi_messages-xsi_messages.Po
+include ../sys/$(DEPDIR)/execxsimessages-debug.Po
+include ./$(DEPDIR)/execxsimessages-xsi_messages.Po
 
 .c.o:
 	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
@@ -369,33 +369,33 @@ include ./$(DEPDIR)/xsi_messages-xsi_messages.Po
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
-xsi_messages-xsi_messages.o: xsi_messages.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(xsi_messages_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT xsi_messages-xsi_messages.o -MD -MP -MF $(DEPDIR)/xsi_messages-xsi_messages.Tpo -c -o xsi_messages-xsi_messages.o `test -f 'xsi_messages.c' || echo '$(srcdir)/'`xsi_messages.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/xsi_messages-xsi_messages.Tpo $(DEPDIR)/xsi_messages-xsi_messages.Po
-#	$(AM_V_CC)source='xsi_messages.c' object='xsi_messages-xsi_messages.o' libtool=no \
+execxsimessages-xsi_messages.o: xsi_messages.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(execxsimessages_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT execxsimessages-xsi_messages.o -MD -MP -MF $(DEPDIR)/execxsimessages-xsi_messages.Tpo -c -o execxsimessages-xsi_messages.o `test -f 'xsi_messages.c' || echo '$(srcdir)/'`xsi_messages.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/execxsimessages-xsi_messages.Tpo $(DEPDIR)/execxsimessages-xsi_messages.Po
+#	$(AM_V_CC)source='xsi_messages.c' object='execxsimessages-xsi_messages.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(xsi_messages_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o xsi_messages-xsi_messages.o `test -f 'xsi_messages.c' || echo '$(srcdir)/'`xsi_messages.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(execxsimessages_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o execxsimessages-xsi_messages.o `test -f 'xsi_messages.c' || echo '$(srcdir)/'`xsi_messages.c
 
-xsi_messages-xsi_messages.obj: xsi_messages.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(xsi_messages_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT xsi_messages-xsi_messages.obj -MD -MP -MF $(DEPDIR)/xsi_messages-xsi_messages.Tpo -c -o xsi_messages-xsi_messages.obj `if test -f 'xsi_messages.c'; then $(CYGPATH_W) 'xsi_messages.c'; else $(CYGPATH_W) '$(srcdir)/xsi_messages.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/xsi_messages-xsi_messages.Tpo $(DEPDIR)/xsi_messages-xsi_messages.Po
-#	$(AM_V_CC)source='xsi_messages.c' object='xsi_messages-xsi_messages.obj' libtool=no \
+execxsimessages-xsi_messages.obj: xsi_messages.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(execxsimessages_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT execxsimessages-xsi_messages.obj -MD -MP -MF $(DEPDIR)/execxsimessages-xsi_messages.Tpo -c -o execxsimessages-xsi_messages.obj `if test -f 'xsi_messages.c'; then $(CYGPATH_W) 'xsi_messages.c'; else $(CYGPATH_W) '$(srcdir)/xsi_messages.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/execxsimessages-xsi_messages.Tpo $(DEPDIR)/execxsimessages-xsi_messages.Po
+#	$(AM_V_CC)source='xsi_messages.c' object='execxsimessages-xsi_messages.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(xsi_messages_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o xsi_messages-xsi_messages.obj `if test -f 'xsi_messages.c'; then $(CYGPATH_W) 'xsi_messages.c'; else $(CYGPATH_W) '$(srcdir)/xsi_messages.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(execxsimessages_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o execxsimessages-xsi_messages.obj `if test -f 'xsi_messages.c'; then $(CYGPATH_W) 'xsi_messages.c'; else $(CYGPATH_W) '$(srcdir)/xsi_messages.c'; fi`
 
-../sys/xsi_messages-debug.o: ../sys/debug.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(xsi_messages_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ../sys/xsi_messages-debug.o -MD -MP -MF ../sys/$(DEPDIR)/xsi_messages-debug.Tpo -c -o ../sys/xsi_messages-debug.o `test -f '../sys/debug.c' || echo '$(srcdir)/'`../sys/debug.c
-	$(AM_V_at)$(am__mv) ../sys/$(DEPDIR)/xsi_messages-debug.Tpo ../sys/$(DEPDIR)/xsi_messages-debug.Po
-#	$(AM_V_CC)source='../sys/debug.c' object='../sys/xsi_messages-debug.o' libtool=no \
+../sys/execxsimessages-debug.o: ../sys/debug.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(execxsimessages_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ../sys/execxsimessages-debug.o -MD -MP -MF ../sys/$(DEPDIR)/execxsimessages-debug.Tpo -c -o ../sys/execxsimessages-debug.o `test -f '../sys/debug.c' || echo '$(srcdir)/'`../sys/debug.c
+	$(AM_V_at)$(am__mv) ../sys/$(DEPDIR)/execxsimessages-debug.Tpo ../sys/$(DEPDIR)/execxsimessages-debug.Po
+#	$(AM_V_CC)source='../sys/debug.c' object='../sys/execxsimessages-debug.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(xsi_messages_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ../sys/xsi_messages-debug.o `test -f '../sys/debug.c' || echo '$(srcdir)/'`../sys/debug.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(execxsimessages_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ../sys/execxsimessages-debug.o `test -f '../sys/debug.c' || echo '$(srcdir)/'`../sys/debug.c
 
-../sys/xsi_messages-debug.obj: ../sys/debug.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(xsi_messages_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ../sys/xsi_messages-debug.obj -MD -MP -MF ../sys/$(DEPDIR)/xsi_messages-debug.Tpo -c -o ../sys/xsi_messages-debug.obj `if test -f '../sys/debug.c'; then $(CYGPATH_W) '../sys/debug.c'; else $(CYGPATH_W) '$(srcdir)/../sys/debug.c'; fi`
-	$(AM_V_at)$(am__mv) ../sys/$(DEPDIR)/xsi_messages-debug.Tpo ../sys/$(DEPDIR)/xsi_messages-debug.Po
-#	$(AM_V_CC)source='../sys/debug.c' object='../sys/xsi_messages-debug.obj' libtool=no \
+../sys/execxsimessages-debug.obj: ../sys/debug.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(execxsimessages_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ../sys/execxsimessages-debug.obj -MD -MP -MF ../sys/$(DEPDIR)/execxsimessages-debug.Tpo -c -o ../sys/execxsimessages-debug.obj `if test -f '../sys/debug.c'; then $(CYGPATH_W) '../sys/debug.c'; else $(CYGPATH_W) '$(srcdir)/../sys/debug.c'; fi`
+	$(AM_V_at)$(am__mv) ../sys/$(DEPDIR)/execxsimessages-debug.Tpo ../sys/$(DEPDIR)/execxsimessages-debug.Po
+#	$(AM_V_CC)source='../sys/debug.c' object='../sys/execxsimessages-debug.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(xsi_messages_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ../sys/xsi_messages-debug.obj `if test -f '../sys/debug.c'; then $(CYGPATH_W) '../sys/debug.c'; else $(CYGPATH_W) '$(srcdir)/../sys/debug.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(execxsimessages_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ../sys/execxsimessages-debug.obj `if test -f '../sys/debug.c'; then $(CYGPATH_W) '../sys/debug.c'; else $(CYGPATH_W) '$(srcdir)/../sys/debug.c'; fi`
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique

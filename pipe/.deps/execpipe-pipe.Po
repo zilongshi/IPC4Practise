@@ -1,5 +1,5 @@
-pipe/pipe-pipe.o: pipe/pipe.c /usr/include/stdc-predef.h \
- /usr/include/unistd.h /usr/include/features.h /usr/include/sys/cdefs.h \
+execpipe-pipe.o: pipe.c /usr/include/stdc-predef.h /usr/include/unistd.h \
+ /usr/include/features.h /usr/include/sys/cdefs.h \
  /usr/include/bits/wordsize.h /usr/include/bits/long-double.h \
  /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
  /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
@@ -28,7 +28,7 @@ pipe/pipe-pipe.o: pipe/pipe.c /usr/include/stdc-predef.h \
  /usr/include/bits/thread-shared-types.h \
  /usr/include/bits/pthreadtypes-arch.h /usr/include/alloca.h \
  /usr/include/bits/stdlib-bsearch.h /usr/include/bits/stdlib-float.h \
- pipe/../sys/debug.h
+ ../sys/debug.h
 
 /usr/include/stdc-predef.h:
 
@@ -142,4 +142,4 @@ pipe/pipe-pipe.o: pipe/pipe.c /usr/include/stdc-predef.h \
 
 /usr/include/bits/stdlib-float.h:
 
-pipe/../sys/debug.h:
+../sys/debug.h:

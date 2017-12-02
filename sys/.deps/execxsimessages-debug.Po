@@ -1,15 +1,13 @@
-pipe/pipe-pipe.o: pipe/pipe.c /usr/include/stdc-predef.h \
- /usr/include/unistd.h /usr/include/features.h /usr/include/sys/cdefs.h \
+../sys/execxsimessages-debug.o: ../sys/debug.c /usr/include/stdc-predef.h \
+ /usr/include/stdio.h /usr/include/bits/libc-header-start.h \
+ /usr/include/features.h /usr/include/sys/cdefs.h \
  /usr/include/bits/wordsize.h /usr/include/bits/long-double.h \
  /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
- /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
- /usr/include/bits/types.h /usr/include/bits/typesizes.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/stddef.h \
- /usr/include/bits/confname.h /usr/include/bits/getopt_posix.h \
- /usr/include/bits/getopt_core.h /usr/include/stdio.h \
- /usr/include/bits/libc-header-start.h /usr/include/bits/types/__FILE.h \
- /usr/include/bits/types/FILE.h /usr/include/libio.h \
- /usr/include/_G_config.h /usr/include/bits/types/__mbstate_t.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ /usr/include/bits/types/__FILE.h /usr/include/bits/types/FILE.h \
+ /usr/include/libio.h /usr/include/_G_config.h \
+ /usr/include/bits/types/__mbstate_t.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/stdarg.h \
  /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
  /usr/include/bits/stdio.h /usr/include/stdlib.h \
@@ -28,11 +26,15 @@ pipe/pipe-pipe.o: pipe/pipe.c /usr/include/stdc-predef.h \
  /usr/include/bits/thread-shared-types.h \
  /usr/include/bits/pthreadtypes-arch.h /usr/include/alloca.h \
  /usr/include/bits/stdlib-bsearch.h /usr/include/bits/stdlib-float.h \
- pipe/../sys/debug.h
+ /usr/include/string.h /usr/include/bits/types/locale_t.h \
+ /usr/include/bits/types/__locale_t.h /usr/include/strings.h \
+ ../sys/debug.h
 
 /usr/include/stdc-predef.h:
 
-/usr/include/unistd.h:
+/usr/include/stdio.h:
+
+/usr/include/bits/libc-header-start.h:
 
 /usr/include/features.h:
 
@@ -46,25 +48,11 @@ pipe/pipe-pipe.o: pipe/pipe.c /usr/include/stdc-predef.h \
 
 /usr/include/gnu/stubs-64.h:
 
-/usr/include/bits/posix_opt.h:
-
-/usr/include/bits/environments.h:
+/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/stddef.h:
 
 /usr/include/bits/types.h:
 
 /usr/include/bits/typesizes.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/stddef.h:
-
-/usr/include/bits/confname.h:
-
-/usr/include/bits/getopt_posix.h:
-
-/usr/include/bits/getopt_core.h:
-
-/usr/include/stdio.h:
-
-/usr/include/bits/libc-header-start.h:
 
 /usr/include/bits/types/__FILE.h:
 
@@ -142,4 +130,12 @@ pipe/pipe-pipe.o: pipe/pipe.c /usr/include/stdc-predef.h \
 
 /usr/include/bits/stdlib-float.h:
 
-pipe/../sys/debug.h:
+/usr/include/string.h:
+
+/usr/include/bits/types/locale_t.h:
+
+/usr/include/bits/types/__locale_t.h:
+
+/usr/include/strings.h:
+
+../sys/debug.h:
